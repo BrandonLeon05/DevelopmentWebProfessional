@@ -25,6 +25,9 @@ class UsuarioController {
             return res.status(409).json({message: 'Los campos son requeridos'});
         }
 
+        if (username.length > 20)
+            return res.status(500).json({message: "El limite de caracteres para username son 20"});
+
         const verify = await dao.verificarUsuario(username);
         if(verify.length > 0) 
             return res.status(500).json({ message : "El usuairo ya existe"});
