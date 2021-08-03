@@ -10,6 +10,13 @@ class UsuarioDAO {
     }
 
     
+    public async verificarUsuario(username: string) {
+        const result = await pool.then(async (connection) => {
+            return await connection.query('Select * FROM usuario where username = ?', [username]);
+        });
+        return result;
+    }
+
     public async insert(user: any){
         const result = await pool.then(async(connection)=>{
             return await connection.query('INSERT INTO Usuario SET ?',[user]);

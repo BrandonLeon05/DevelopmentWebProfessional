@@ -1,5 +1,6 @@
 import {Request, Response } from 'express';
 import { dao } from '../dao/usuarioDAO';
+import pool from '../database/database';
 import { utils } from '../utils/utils';
 
 class UsuarioController {
@@ -23,6 +24,10 @@ class UsuarioController {
         if (nombre == null || apellidos == null || username == null || password == null){
             return res.status(409).json({message: 'Los campos son requeridos'});
         }
+
+        const verify = await dao.verificarUsuario(username);
+        if(verify.length > 0) 
+            return res.status(500).json({ message : "El usuairo ya existe"});
 
         const encryptedPassword = await utils.hashPassword(password);
 
