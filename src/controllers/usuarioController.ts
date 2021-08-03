@@ -1,5 +1,6 @@
 import {Request, Response } from 'express';
 import { dao } from '../dao/usuarioDAO';
+import { utils } from '../utils/utils';
 
 class UsuarioController {
 
@@ -23,12 +24,14 @@ class UsuarioController {
             return res.status(409).json({message: 'Los campos son requeridos'});
         }
 
+        const encryptedPassword = await utils.hashPassword(password);
+
         const user = {
             //claveUsuario,
             nombre,
             apellidos,
             username,
-            password,
+            password : encryptedPassword,
         }
 
         const result = await dao.insert(user);
