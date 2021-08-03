@@ -1,13 +1,12 @@
 import indexRoutes from "../routes/indexRoutes";
 import { Request, Response } from 'express';
-import pool from '../database/database';
+import { dao } from '../dao/indexDAO';
 
 class IndexController{
 
     public async lista(req: Request, res: Response): Promise<void> {
-        const result = await pool.then(async (connection) => {
-            return await connection.query('SELECT * FROM departamento');
-        });
+        const result = await dao.test();
+
         res.json(result);
     };
 
