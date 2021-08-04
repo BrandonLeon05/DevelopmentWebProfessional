@@ -1,7 +1,7 @@
 export default {
     database: {
         host: 'localhost',
-        port: 33066,
+        port: 3306,
         user: 'root',
         password: '',
         database: 'sistema_departamentos'
