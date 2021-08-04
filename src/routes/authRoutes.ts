@@ -10,10 +10,10 @@ class AuthRoutes {
     }
 
     config(): void{
-        this.router.get('/', (req, res) => {res.send('GET AuthRoutes')});
+        //this.router.get('/', (req, res) => {res.send('GET AuthRoutes')});
+        this.router.post('/', authController.login);
     }
 }
 
 const authRoutes = new AuthRoutes();
 export default authRoutes.router;
-

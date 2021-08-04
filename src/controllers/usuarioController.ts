@@ -28,9 +28,11 @@ class UsuarioController {
         if (username.length > 20)
             return res.status(500).json({message: "El limite de caracteres para username son 20"});
 
-        const verify = await dao.verificarUsuario(username);
+        const verify = await dao.verificarUsuario(username);    
+
+        // Verificar si el usuario existe 
         if(verify.length > 0) 
-            return res.status(500).json({ message : "El usuairo ya existe"});
+            return res.status(500).json({ message : "El usuario ya existe"});
 
         const encryptedPassword = await utils.hashPassword(password);
 
