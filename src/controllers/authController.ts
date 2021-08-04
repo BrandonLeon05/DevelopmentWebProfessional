@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { dao } from '../dao/authDAO';
 import { utils } from '../utils/utils';
 import jwt from 'jsonwebtoken';
-import secretKey from '../config/kwtKey';
+import secretKey from '../config/jwtKey';
 
 class AuthController {
 

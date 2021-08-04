@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { usuarioController } from '../controllers/usuarioController';
+import { checkJwt } from '../middleware/jwt';
 
 class UsuarioRoutes {
     public router: Router = Router();
@@ -9,8 +10,8 @@ class UsuarioRoutes {
      }
 
     config(): void {
-        this.router.get('/', usuarioController.lista);
-        this.router.put('/', usuarioController.insert);
+        this.router.get('/', [checkJwt], usuarioController.lista);
+        this.router.put('/', [checkJwt], usuarioController.insert);
     }
 }
 
