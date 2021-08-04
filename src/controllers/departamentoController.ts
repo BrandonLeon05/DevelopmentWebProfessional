@@ -10,8 +10,8 @@ class DepartamentoController {
     }
 
     public async insert(req: Request, res: Response) {
-        const { descripcion, planta, fecha_construccion } = req.body;
-        if (descripcion == null || planta == null || fecha_construccion == null) {
+        const { descripcion, planta, fechaConstruccion } = req.body;
+        if (descripcion == null || planta == null || fechaConstruccion == null) {
             return res.status(400).json({message: 'Debe rellenar todos los campos'});
         }
         //Estatico, saber como obtener de logeo
@@ -19,7 +19,7 @@ class DepartamentoController {
         const departamento = {
             descripcion,
             planta,
-            fecha_construccion,
+            fechaConstruccion,
             cveEncargado
         }
 
@@ -29,7 +29,6 @@ class DepartamentoController {
         }else{
             return res.status(400).json({message: result.message});
         }
-        res.json(result);
     }
 
 }
