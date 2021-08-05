@@ -1,6 +1,5 @@
 import {Request, Response } from 'express';
 import { dao } from '../dao/usuarioDAO';
-import pool from '../database/database';
 import { utils } from '../utils/utils';
 
 class UsuarioController {
@@ -45,7 +44,6 @@ class UsuarioController {
 
             // 
             const user = {
-                //claveUsuario,
                 nombre,
                 apellidos,
                 username,
