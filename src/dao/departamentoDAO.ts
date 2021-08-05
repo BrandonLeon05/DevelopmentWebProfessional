@@ -5,7 +5,7 @@ class DepartamentoDAO {
 
     public async lista(){
         const result = await pool.then(async(connection)=>{
-            return await connection.query('SELECT cveDepa, descripcion, planta FROM departamento')
+            return await connection.query('SELECT cveDepa, descripcion, planta, DATE_FORMAT(fechaConstruccion, "%Y-%m-%d") as fechaConstruccion, cveEncargado FROM departamento')
         });
         return result;
     }
