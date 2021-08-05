@@ -46,9 +46,6 @@ class DepartamentoController {
             }else{
                 res.status(400).json({message : result.message});
             }
-
-            
-
         } catch (ex) {
             res.status(500).json({ message: ex.message });
         }
