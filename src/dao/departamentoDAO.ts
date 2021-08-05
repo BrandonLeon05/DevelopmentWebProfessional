@@ -23,6 +23,14 @@ class DepartamentoDAO {
         });
         return result;
     }
+
+    public async delete(cveDepartamento: any) {
+        const result = await pool.then(async (connection) => {
+            return await connection.query("DELETE FROM departamento WHERE cveDepartamento = ?", [cveDepartamento]);
+        });
+        return result;
+        
+    }
 }
 
 export const dao = new DepartamentoDAO();
