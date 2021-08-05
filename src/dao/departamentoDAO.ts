@@ -16,6 +16,13 @@ class DepartamentoDAO {
         });
         return result;
     }
+
+    public async update(departamento: any) {
+        const result = await pool.then(async (connection) => {
+            return await connection.query("UPDATE departamento SET ? WHERE cveDepartamento = ?", [departamento, departamento.cveDepartamento]);
+        });
+        return result;
+    }
 }
 
 export const dao = new DepartamentoDAO();

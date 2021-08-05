@@ -11,6 +11,7 @@ class DepartamentoRoutes {
     config(): void {
         this.router.get('/', departamentoController.lista);
         this.router.put('/', departamentoController.insert);
+        this.router.post('/', departamentoController.update);
     }
 }
 

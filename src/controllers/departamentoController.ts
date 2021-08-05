@@ -31,6 +31,29 @@ class DepartamentoController {
         }
     }
 
+    //Update departamento
+    public async update(req: Request, res: Response) {
+        try {
+            const departamento = req.body;
+
+            if(departamento.cveDepartamento == null){
+                return res.status(400).json({message : "No se puede actualizar"});
+            }
+
+            const result = await dao.update(departamento);
+            if(result.affectedRows > 0){
+                res.json({message : "El departamento se ha actualizado de manera correcta."});
+            }else{
+                res.status(400).json({message : result.message});
+            }
+
+            
+
+        } catch (ex) {
+            res.status(500).json({ message: ex.message });
+        }
+    }
+
 }
 
 export const departamentoController = new DepartamentoController();
