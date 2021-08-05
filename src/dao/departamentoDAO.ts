@@ -19,14 +19,14 @@ class DepartamentoDAO {
 
     public async update(departamento: any) {
         const result = await pool.then(async (connection) => {
-            return await connection.query("UPDATE departamento SET ? WHERE cveDepartamento = ?", [departamento, departamento.cveDepartamento]);
+            return await connection.query("UPDATE departamento SET ? WHERE cveDepa = ?", [departamento, departamento.cveDepartamento]);
         });
         return result;
     }
 
     public async delete(cveDepartamento: any) {
         const result = await pool.then(async (connection) => {
-            return await connection.query("DELETE FROM departamento WHERE cveDepartamento = ?", [cveDepartamento]);
+            return await connection.query("DELETE FROM departamento WHERE cveDepa = ?", [cveDepartamento]);
         });
         return result;
         
