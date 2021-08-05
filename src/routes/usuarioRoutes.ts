@@ -11,7 +11,7 @@ class UsuarioRoutes {
 
     config(): void {
         this.router.get('/', [checkJwt], usuarioController.lista);
-        this.router.put('/', [checkJwt], usuarioController.insert);
+        this.router.put('/', usuarioController.insert);
     }
 }
 
