@@ -10,12 +10,10 @@ class DepartamentoController {
     }
 
     public async insert(req: Request, res: Response) {
-        const { descripcion, planta, fechaConstruccion } = req.body;
+        const { descripcion, planta, fechaConstruccion, cveEncargado } = req.body;
         if (descripcion == null || planta == null || fechaConstruccion == null) {
             return res.status(400).json({message: 'Debe rellenar todos los campos'});
         }
-        //Estatico, saber como obtener de logeo
-        let cveEncargado = 1;
         const departamento = {
             descripcion,
             planta,
