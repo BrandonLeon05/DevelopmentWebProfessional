@@ -5,9 +5,8 @@ import { dao } from '../dao/indexDAO';
 class IndexController{
 
     public async lista(req: Request, res: Response): Promise<void> {
-        const result = await dao.test();
-
-        res.json(result);
+        //const result = await dao.test();
+        res.json('API WORKS');
     };
 
     insertar(req: Request, res: Response): void {
