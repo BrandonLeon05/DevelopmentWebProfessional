@@ -12,7 +12,7 @@ class DepartamentoRoutes {
         this.router.get('/', departamentoController.lista);
         this.router.put('/', departamentoController.insert);
         this.router.post('/', departamentoController.update);
-        this.router.delete('/:cveDepartamento', departamentoController.delete);
+        this.router.delete('/:cveDepa', departamentoController.delete);
     }
 }
 

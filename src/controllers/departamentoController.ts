@@ -36,7 +36,7 @@ class DepartamentoController {
         try {
             const departamento = req.body;
 
-            if(departamento.cveDepartamento == null){
+            if(departamento.cveDepa == null){
                 return res.status(400).json({message : "No se puede actualizar"});
             }
 
@@ -57,13 +57,13 @@ class DepartamentoController {
     //Deleta Departamento
     public async delete(req: Request, res: Response) {
         try {
-            const { cveDepartamento } = req.params;
+            const { cveDepa } = req.params;
 
-            if(cveDepartamento == null){
+            if(cveDepa == null){
                 return res.status(400).json({ message: "No se pude eliminar" });
             }
 
-            const result = await dao.delete(cveDepartamento);
+            const result = await dao.delete(cveDepa);
             if (result.affectedRows > 0) {
                 return res.json({ message: "Departamento eliminado" });
             } else {
