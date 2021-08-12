@@ -10,11 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.indexController = void 0;
+const indexDAO_1 = require("../dao/indexDAO");
 class IndexController {
     lista(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //const result = await dao.test();
-            res.json('API WORKS');
+            const result = yield indexDAO_1.dao.test();
+            res.json(result);
         });
     }
     ;
